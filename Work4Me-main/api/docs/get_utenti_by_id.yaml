@@ -1,0 +1,64 @@
+/api/utenti/{id}:
+  get:
+    summary: Ricerca dell'utente selezionato.
+    description: Ricerca di uno specifico utente.
+    parameters:
+      - in: path
+        name: id 
+        schema:
+            type: integer
+        required: true
+        description: l'ID dell'utente.
+    responses:
+      200:
+        description: L'utente con l'ID indicato
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  _id:
+                    type: string
+                    description: Numero identificativo dell'utente
+                    example: 61af3a1ed80d6205e1439553
+                  email:
+                    type: string
+                    description: Indirizzo email dell'utente
+                    example: example@example.com
+                  passwordHash:
+                    type: string
+                    description: Password dell'utente in versione cifrata con hashing
+                    example: 39ab#sasd4242
+                  refCode:
+                    type: string
+                    description: Codice dell'utente per invitare altre persone a registrarsi
+                    example: FEDJwqQfQH0wo
+                  invitedBy:
+                    type: string
+                    description: Codice referral dell'utente che ha invitato a registrarsi, può non essere presente
+                    example: 5XNtT1urDBl0p
+                  preferiti:
+                    type: array
+                    items:
+                      type: integer
+                      description: Id dell'annuncio salvato
+                      example: 61b1b99895c880c19dab8a33
+                    description: Annunci salvati tra i preferiti dell'utente
+                    example: [61b240a51ab6c8c6b518b2f6,61b1c1e056bc6e1f61c3c121]
+                  recensioni:
+                    type: integer
+                    minimum: 1
+                    maximum: 5
+                    description: Valore medio delle recensioni ricevyte dagli annunci dell'utente
+                    example: 4.2
+                  badges:
+                    type: array
+                    items: 
+                      type: integer
+                      description: Numero identificativo del badges
+                      example: 5
+                    description: Badges posseduti dall'utente
+                    example: [1,3,5,11]
+      404:
+        description: L'utente non e' stato trovato.

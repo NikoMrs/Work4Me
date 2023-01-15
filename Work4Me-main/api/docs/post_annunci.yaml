@@ -1,0 +1,41 @@
+  /api/annunci:
+    post:
+      summary: Crea un annuncio.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _idProprietario:
+                  type: string
+                  description: Il numero identificativo del proprietario
+                  example: 61b4de74bc688bf7d728f581
+                titolo:
+                  type: string
+                  description: Titolo descrittivo dell'annuncio
+                  example: Giardiniere esperto
+                descrizione:
+                  type: string
+                  description: Descrizione dell'annuncio
+                  example: Adoro le piante e so come curarle correttamente
+                costo:
+                  type: number
+                  description: Costo orario del servizio
+                  example: 24.90
+                luogo:
+                  type: string
+                  description: Luogo di prestazione del servizio
+                  example: Trento (TN)
+                categoria:
+                  type: string
+                  description: Categoria del servizio
+                  example: Giardinaggio
+                foto:
+                  type: string
+                  description: Fotografia dell'annuncio
+                  example: foto_da_galleria_20211211.jpg     
+      responses:
+        201:
+          description: Annuncio inserito

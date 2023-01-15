@@ -1,0 +1,15 @@
+/api/annunci/{id}:
+  delete:
+    summary: Rimozione dell'annuncio.
+    parameters:
+      - in: path
+        name: id
+        schema:
+            type: string
+        required: true
+        description: L'ID dell'annuncio.
+    responses:
+      200:
+        description: L'annuncio e' stato rimosso.
+      404:
+        description: L'annuncio non e' stato trovato.

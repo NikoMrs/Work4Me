@@ -1,0 +1,15 @@
+/api/utenti/{id}:
+  delete:
+    summary: Rimozione dell'utente.
+    parameters:
+      - in: path
+        name: id 
+        schema:
+            type: string
+        required: true
+        description: L'ID dell'utente.
+    responses:
+      200:
+        description: L'utente e' stato rimosso.
+      404:
+        description: L'utente non e' stato trovato.

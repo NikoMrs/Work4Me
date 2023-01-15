@@ -1,0 +1,14 @@
+/api/annunci/count:
+  get:
+    summary: Fornisce il numero di annunci.
+    description: Fornisce il numero di annunci presenti sul Server.
+    responses:
+      200:
+        description: Il numero di annunci.
+        content:
+          application/json:
+            schema:
+              type: integer 
+              minimum: 0
+              description: Numero di annunci momentaneamente presenti sul Server.
+              example: 999

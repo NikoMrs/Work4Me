@@ -1,0 +1,26 @@
+  /api/utenti:
+    put:
+      summary: Modifica i dati di un utente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: Indirizzo email dell'utente
+                  example: exampe@example.com
+                passwordHash:
+                  type: string
+                  description: Password dell'utente in versione cifrata con hashing
+                  example: 39ab#sasd4242
+                foto: 
+                  type: string
+                  description: Immagine profilo dell'utente
+                  example: "foto_20211218.jpg"
+
+      responses:
+        201:
+          description: Modifica eseguita con successo
